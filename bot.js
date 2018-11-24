@@ -40,7 +40,7 @@ client.on('ready', () => {
 
 
 client.on("message", msg => {
-           var prefix = "g!";
+           var prefix = "/";
   if(msg.content.startsWith (prefix + "id")) {
     if(!msg.channel.guild) return msg.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
       const embed = new Discord.RichEmbed();
@@ -62,7 +62,7 @@ client.on("message", msg => {
 
 // -ping
    client.on('message', message => {
-     if (message.content === "g!ping") {
+     if (message.content === "/ping") {
       const embed = new Discord.RichEmbed()
  
   .setColor("#FF0000")
@@ -95,7 +95,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-    if(message.content === "g!about") {
+    if(message.content === "/about") {
         const embed = new Discord.RichEmbed()
         .setColor("#00FFFF")
         .setDescription(`**About for this bot**
@@ -119,7 +119,7 @@ client.on('message', message => {
            }
 });
 
-var prefix = "g!"
+var prefix = "/"
       if (command === "mod-reply") {
   const sayMessage = args.join(" ");
 
@@ -136,7 +136,7 @@ client.on("message", message => {
   
   let command = message.content.split(" ")[0];
   
-  if (command === "g!mute") {
+  if (command === "/mute") {
         if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
   let user = message.mentions.users.first();
   let modlog = client.channels.find('name', 'console');
@@ -172,7 +172,7 @@ return message.reply("**:white_check_mark: .. تم اعطاء العضو ميو�
   
   let command = message.content.split(" ")[0];
   
-  if (command === "g!unmute") {
+  if (command === "/unmute") {
         if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
   let user = message.mentions.users.first();
   let modlog = client.channels.find('name', 'console');
@@ -201,7 +201,7 @@ return message.reply("**:white_check_mark: .. تم فك الميوت عن الش
 });
 
 
-var prefix = "$"
+var prefix = "/"
 client.on('message', message => {
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
@@ -242,7 +242,7 @@ client.on('message', message => {
  
 
  
-var prefix = "$"
+var prefix = "/"
 client.on('message', message => {
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
@@ -284,7 +284,7 @@ client.on('message', message => {
 
  client.on('message', message => {
               if(!message.channel.guild) return;
-    if(message.content.startsWith('$bc')) {
+    if(message.content.startsWith('/bc')) {
     if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
@@ -379,7 +379,7 @@ client.on('message', message => {
 
 client.on('message', msg => {
   //Code By : ‡ ♪ ℬℐℓѦℓ✋ ‡#2026
-  if(msg.content.startsWith('g!moderator-apply')) {
+  if(msg.content.startsWith('/moderator-apply')) {
     if(!msg.channel.guild) return msg.reply('** هاذا الامر فقط للسيرفرات**');
     if(!msg.guild.channels.find('name', 'account-moderator')) return msg.reply('**الرجاء إضافة روم بإسم (account-moderator)**');
     let args = msg.content.split(" ").slice(1);
