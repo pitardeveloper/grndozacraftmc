@@ -119,16 +119,6 @@ client.on('message', message => {
            }
 });
 
-var prefix = "/"
-      if (command === "mod-reply") {
-  const sayMessage = args.join(" ");
-
-  message.delete().catch(O_o => {
-    // Catch error
-  });
-  message.channel.send(sayMessage);
-}
-
 
 //اوامر اداريه//
 client.on("message", message => {
