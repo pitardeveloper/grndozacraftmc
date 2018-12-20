@@ -99,22 +99,19 @@ client.on('message', message => {
         const embed = new Discord.RichEmbed()
         .setColor("#00FFFF")
         .setDescription(`**About for this bot**
-**Ram Useage: 19.4 MB**
-**Server Ram Useage: 
-**Bot Ram : 10 GB**
+**Bot Ram Useage: 19.4 MB**
+**Bot Maximum Ram : 10 GB**
 **GrndozaCraftMc Server Ram: 3GB Ram**
-**Stats : Offline**
+**Stats : Online**
 **IP : GrndozaCraftMc.tk**
-**Server Website: SoOon**
-**Plugins: Error Bot Can't Join to Console log**
-**SoftWare: Error Bot Can't Join to Server Software**
-**Versions: 1.8 / 1.9 / 1.10 / 1.11 / 1.12 / 1.13 you can join**
+**Server Website: GrndozaCraftMC.net || SoOon**
+**Versions: 1.8 ---> 1.13**
 **Max Players : 100**
 **DISCORD: https://discord.gg/pfpfAMG**
 **TeamSpeak: ts.GrndozaCraftMc.net | Soon**
-**OWNER: PitarG4merYT**
-**Bot Creator: ! [PiTaR] =)#5333**
-**GrndozaCraftMc Bot | prefix : g! **`)
+**OWNER: NoT_PiTaR**
+**Bot Creator: ! [PiTaR] =)#0001**
+**GrndozaCraftMc Bot | prefix : / **`)
                message.channel.sendEmbed(embed);
            }
 });
@@ -320,7 +317,7 @@ client.on('ready',async () => {
      const config = {
       name: "● Rainbow", // اسم الرتبة
       guildid: "507868593103568901", // اي دي السيرفر
-      sec: 0.1 // عدد الثواني
+      sec: 1 // عدد الثواني
     };
     let guild = client.guilds.get(config.guildid);
     let role = guild.roles.find(role => role.name === config.name);
