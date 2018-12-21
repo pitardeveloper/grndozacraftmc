@@ -102,7 +102,7 @@ client.on('message', message => {
 **Bot Ram Useage: 19.4 MB**
 **Bot Maximum Ram : 10 GB**
 **GrndozaCraftMc Server Ram: 3GB Ram**
-**Stats : Online**
+**Stats : Offline**
 **IP : GrndozaCraftMc.tk**
 **Server Website: GrndozaCraftMC.net || SoOon**
 **Versions: 1.8 ---> 1.13**
@@ -335,42 +335,6 @@ client.on('ready',async () => {
   }
 }); 
 
-client.on('message', msg => {
-  if (msg.content === 'باك') {
-    msg.reply('**ولكم منور يا عسل**');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'السلام عليكم') {
-    msg.reply('**وعليكم السلام ورحمة الله وبركاته**');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'سلام عليكم') {
-    msg.reply('**وعليكم السلام ورحمة الله وبركاته**');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'برب') {
-    msg.reply('**تيت لا اطول علينا يا غالي**');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === '.') {
-    msg.reply('أطلق ثبات وجودك :kissing_heart::kissing_heart:');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'هلا') {
-    msg.reply('**هلا وغلا ارحب**');
-  }
-});
-
 
 client.on('message', message => {
     if (message.content === "!rooms") {
@@ -413,7 +377,42 @@ client.on('message', msg => {
 
 });
 
+client.on('message', msg => {
+  //Code By : ‡ ♪ ℬℐℓѦℓ✋ ‡#2026
+  if(msg.content.startsWith('/suggest')) {
+    if(!msg.channel.guild) return msg.reply('** هاذا الامر فقط للسيرفرات**');
+    if(!msg.guild.channels.find('name', '⫸【『suggestions』】')) return msg.reply('**الرجاء إضافة روم بإسم (suggestions)**');
+    let args = msg.content.split(" ").slice(1);
+    if(!args[1]) return msg.reply('الرجاء كتابة الاقتراح')
+    //غيره على حسب اسم روم الاقتراحات او سوي مثل اسم الروم الموجود هنا
+    if(msg.guild.channels.find('name', '⫸【『suggestions』】')) {
+      //غيره هنا كمان اذا غيرت فوق
+      msg.guild.channels.find('name', '⫸【『suggestions』】').send(`
+      تم الاقتراح من قبل : ${msg.member}
+      الاقتراح : 
+      ${args.join(" ").split(msg.mentions.members.first()).slice(' ')}
+      `)
+      .then(function (message) {
+        message.react('✅')
+        message.react('❌')
+      })
+      }
+    }
 
+});
+
+
+var prefix = "/"
+client.on('message', message => {
+
+  if (message.content.startsWith(prefix + "suggest-done")) {
+  if (!message.channel.guild) return;
+  let args = message.content.split(" ").slice(1).join(' ');
+  client.channels.get("525768406176235530").send(
+      "\n" + "" + " ● تقرير الاقتراح : " + "" +
+      "\n" + "" + args + "")
+  }
+  });
 
 
 // THIS  MUST  BE  THIS  WAY
