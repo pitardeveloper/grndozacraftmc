@@ -308,32 +308,7 @@ client.on('message', message => {
     })
     })
     }
-    });
-
-
-client.on('ready',async () => {
-  console.log(client.user.username);
-  try {
-     const config = {
-      name: "● Rainbow", // اسم الرتبة
-      guildid: "507868593103568901", // اي دي السيرفر
-      sec: 1 // عدد الثواني
-    };
-    let guild = client.guilds.get(config.guildid);
-    let role = guild.roles.find(role => role.name === config.name);
-    let sec = config.sec * 1000;
-    if(!guild) return console.warn("Unkown guild.");
-    if(!role) return console.warn("Unkown role");
-    if(role.position >= guild.members.get(client.user.id).highestRole.position) return console.warn("**يجب ان تكون رتبة البوت فوق رتبة الرينبو**");
-    setInterval(() => {
-      role.edit({ 
-      color: "RANDOM"
-    });
-    }, sec);
-  } catch(e) {
-    console.error(e);
-  }
-}); 
+    }); 
 
 
 client.on('message', message => {
@@ -405,7 +380,7 @@ client.on('message', msg => {
 var prefix = "/"
 client.on('message', message => {
 
-  if (message.content.startsWith(prefix + "suggest-done")) {
+  if (message.content.startsWith(prefix + "suggestion-done")) {
   if (!message.channel.guild) return;
   let args = message.content.split(" ").slice(1).join(' ');
   client.channels.get("525768406176235530").send(
