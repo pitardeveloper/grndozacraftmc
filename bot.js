@@ -363,7 +363,7 @@ client.on('ready',async () => {
      const config = {
       name: "! Empire - Rainbow", // اسم الرتبة
       guildid: "564528325914001419", // اي دي السيرفر
-      sec: 0.5 // عدد الثواني
+      sec: 1 // عدد الثواني
     };
     let guild = client.guilds.get(config.guildid);
     let role = guild.roles.find(role => role.name === config.name);
