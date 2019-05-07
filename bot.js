@@ -34,8 +34,7 @@ client.on('message', message => {
   });
 
 // playing
-client.on('ready', () => {
-                                                                                                                                                                                                                                                                              client.user.setGame(`GrndozaCraftMc.tk Join Now`,'https://www.twitch.tv/v5bz');
+client.on('ready', () => {                                                                                                                                                                                                                                                                            client.user.setGame(`GrndozaCraftMc.tk Join Now`,'https://www.twitch.tv/v5bz');
 });
 
 
