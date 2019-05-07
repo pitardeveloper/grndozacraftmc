@@ -83,39 +83,6 @@ client.on('message', message => {
 }
 });
 
-client.on('message', message => {
-    if(message.content.includes('aternos.me.net.com.25565.cf.mymc.')){ 
-                                            if(!message.channel.guild) return message.reply('** advertising me on DM ? :thinking:   **');
-        if (!message.member.hasPermissions(['ADMINISTRATOR'])){
-        message.delete()
-    return message.reply(`**ممنوع نشر سيرفرات ماينكرافت :x:**`)
-    }
-}
-});
-
-
-client.on('message', message => {
-    if(message.content === "/about") {
-        const embed = new Discord.RichEmbed()
-        .setColor("#00FFFF")
-        .setDescription(`**About for this bot**
-**Bot Ram Useage: 19.4 MB**
-**Bot Maximum Ram : 10 GB**
-**GrndozaCraftMc Server Ram: 3GB Ram**
-**Stats : Offline**
-**IP : GrndozaCraftMc.tk**
-**Server Website: GrndozaCraftMC.net || SoOon**
-**Versions: 1.8 ---> 1.13**
-**Max Players : 100**
-**DISCORD: https://discord.gg/pfpfAMG**
-**TeamSpeak: ts.GrndozaCraftMc.net | Soon**
-**OWNER: NoT_PiTaR**
-**Bot Creator: ! [PiTaR] =)#0001**
-**GrndozaCraftMc Bot | prefix : / **`)
-               message.channel.sendEmbed(embed);
-           }
-});
-
 
 //اوامر اداريه//
 client.on("message", message => {
@@ -275,7 +242,7 @@ client.on('message', message => {
     if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-    let copy = "RainBoW System";
+    let copy = "Empire CLAN";
     let request = `Requested By ${message.author.username}`;
     if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
     msg.react('✅')
@@ -312,7 +279,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-    if (message.content === "!rooms") {
+    if (message.content === "/rooms") {
         if (message.author.bot) return
                       if (!message.guild) return;
 
@@ -330,15 +297,15 @@ client.on('message', message => {
 
 client.on('message', msg => {
   //Code By : ‡ ♪ ℬℐℓѦℓ✋ ‡#2026
-  if(msg.content.startsWith('/moderator-apply')) {
+  if(msg.content.startsWith('/suggest')) {
     if(!msg.channel.guild) return msg.reply('** هاذا الامر فقط للسيرفرات**');
-    if(!msg.guild.channels.find('name', 'account-moderator')) return msg.reply('**الرجاء إضافة روم بإسم (account-moderator)**');
+    if(!msg.guild.channels.find('name', 'empires-suggestions')) return msg.reply('**الرجاء إضافة روم بإسم (empires-suggestions)**');
     let args = msg.content.split(" ").slice(1);
     if(!args[1]) return msg.reply('الرجاء كتابة الاقتراح')
     //غيره على حسب اسم روم الاقتراحات او سوي مثل اسم الروم الموجود هنا
-    if(msg.guild.channels.find('name', 'account-moderator')) {
+    if(msg.guild.channels.find('name', 'empires-suggestions')) {
       //غيره هنا كمان اذا غيرت فوق
-      msg.guild.channels.find('name', 'account-moderator').send(`
+      msg.guild.channels.find('name', 'empires-suggestions').send(`
       تم ارسال الطلب من قبل : ${msg.member}
       Moderator Account System Details : 
       ${args.join(" ").split(msg.mentions.members.first()).slice(' ')}
@@ -388,6 +355,32 @@ client.on('message', message => {
       "\n" + "" + args + "")
   }
   });
+
+
+client.on('ready',async () => {
+  console.log(client.user.username);
+  try {
+     const config = {
+      name: "! Empire - Rainbow", // اسم الرتبة
+      guildid: "564528325914001419", // اي دي السيرفر
+      sec: 0.5 // عدد الثواني
+    };
+    let guild = client.guilds.get(config.guildid);
+    let role = guild.roles.find(role => role.name === config.name);
+    let sec = config.sec * 1000;
+    if(!guild) return console.warn("Unkown guild.");
+    if(!role) return console.warn("Unkown role");
+    if(role.position >= guild.members.get(client.user.id).highestRole.position) return console.warn("**يجب ان تكون رتبة البوت فوق رتبة الرينبو**");
+    setInterval(() => {
+      role.edit({ 
+      color: "RANDOM"
+    });
+    }, sec);
+  } catch(e) {
+    console.error(e);
+  }
+}); 
+
 
 
 // THIS  MUST  BE  THIS  WAY
